@@ -12,6 +12,7 @@ import com.ozalp.AI.Generator.Backend.common.utilities.results.SuccessDataResult
 import com.ozalp.AI.Generator.Backend.dataAccess.AiToolRepository;
 import com.ozalp.AI.Generator.Backend.entities.concretes.AiTool;
 import com.ozalp.AI.Generator.Backend.exceptions.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class AiToolManager implements AiToolService {
     private final AiToolMapper mapper;
     private AiToolRules rules;
 
+    @Transactional
     @Override
     public DataResult<AiToolResponse> create(CreateAiToolRequest request) {
         AiTool givenData = mapper.toEntity(request);

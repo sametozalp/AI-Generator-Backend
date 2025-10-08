@@ -13,6 +13,7 @@ import com.ozalp.AI.Generator.Backend.common.utilities.results.SuccessDataResult
 import com.ozalp.AI.Generator.Backend.dataAccess.UserDetailRepository;
 import com.ozalp.AI.Generator.Backend.entities.concretes.UserDetail;
 import com.ozalp.AI.Generator.Backend.exceptions.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class UserDetailManager implements UserDetailService {
     private final UserDetailRepository repository;
     private final UserDetailMapper mapper;
 
+    @Transactional
     @Override
     public DataResult<UserDetailResponse> create(CreateUserDetailRequest request) {
         UserDetail userDetailRequest = mapper.toEntity(request);
