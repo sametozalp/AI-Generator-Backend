@@ -1,8 +1,10 @@
-package com.ozalp.AI.Generator.Backend.business.dtos.requests;
+package com.ozalp.AI.Generator.Backend.business.dtos.requests.concretes;
+
+import com.ozalp.AI.Generator.Backend.business.dtos.requests.abstracts.BaseCreateRequest;
 
 import java.util.List;
 
-public class CreateAiToolRequest {
+public class CreateAiToolRequest extends BaseCreateRequest {
 
     private List<String> categories;
 

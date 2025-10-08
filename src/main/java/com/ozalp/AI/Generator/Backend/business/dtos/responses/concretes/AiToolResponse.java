@@ -1,9 +1,11 @@
-package com.ozalp.AI.Generator.Backend.business.dtos.responses;
+package com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes;
+
+import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResponse;
 
 import java.util.List;
 import java.util.UUID;
 
-public class AiToolResponseForCreated {
+public class AiToolResponse extends BaseResponse {
 
     private List<String> categories;
 
