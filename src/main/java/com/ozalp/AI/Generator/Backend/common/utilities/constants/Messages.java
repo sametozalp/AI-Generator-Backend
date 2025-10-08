@@ -4,6 +4,8 @@ public class Messages {
 
     public static final String USER_DETAIL_NOT_FOUND = "User detail not found";
     public static final String AI_TOOL_ALREADY_EXISTS = "AI tool already exists";
+    public static final String EMAIL_ALREADY_EXISTS = "Email already exists";
+    public static final String USERNAME_ALREADY_EXISTS = "Username already exists";
 
     public static String AI_TOOL_NOT_FOUND = "AI tool not found";
 

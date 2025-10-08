@@ -1,7 +1,7 @@
 package com.ozalp.AI.Generator.Backend.entities.concretes;
 
 import com.ozalp.AI.Generator.Backend.entities.abstracts.BaseEntity;
-import com.ozalp.AI.Generator.Backend.enums.RoleEnum;
+import com.ozalp.AI.Generator.Backend.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class Role extends BaseEntity implements GrantedAuthority {
 
     @Column(name = "name", unique = true)
     @Enumerated(EnumType.STRING)
-    private RoleEnum name;
+    private RoleType name;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     private Set<UserRole> userRoles;

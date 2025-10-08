@@ -53,4 +53,11 @@ public class User extends BaseEntity implements UserDetails {
     public String getUsername() {
         return username;
     }
+
+    @PrePersist
+    private void setInitValues() {
+        this.isActive = true;
+        this.username = email;
+    }
+
 }

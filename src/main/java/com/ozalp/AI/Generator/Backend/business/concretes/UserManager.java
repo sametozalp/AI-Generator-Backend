@@ -4,6 +4,7 @@ import com.ozalp.AI.Generator.Backend.business.abstracts.UserService;
 import com.ozalp.AI.Generator.Backend.business.dtos.requests.concretes.CreateUserRequest;
 import com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes.UserResponse;
 import com.ozalp.AI.Generator.Backend.business.mappers.UserMapper;
+import com.ozalp.AI.Generator.Backend.business.rules.UserRules;
 import com.ozalp.AI.Generator.Backend.common.utilities.constants.Messages;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.DataResult;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.Result;
@@ -23,11 +24,16 @@ public class UserManager implements UserService {
 
     private final UserRepository repository;
     private final UserMapper mapper;
+    private final UserRules rules;
 
     @Transactional
     @Override
     public DataResult<UserResponse> create(CreateUserRequest request) {
         User givenUser = mapper.toEntity(request);
+
+        rules.checkEmail(givenUser);
+        rules.checkUserName(givenUser);
+
         User saved = save(givenUser);
         return new SuccessDataResult<>(mapper.toResponse(saved));
     }
