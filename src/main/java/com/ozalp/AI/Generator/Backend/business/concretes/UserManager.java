@@ -10,7 +10,7 @@ import com.ozalp.AI.Generator.Backend.common.utilities.results.Result;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.SuccessDataResult;
 import com.ozalp.AI.Generator.Backend.dataAccess.UserRepository;
 import com.ozalp.AI.Generator.Backend.entities.concretes.User;
-import com.ozalp.AI.Generator.Backend.exceptions.EntityNotFoundException;
+import com.ozalp.AI.Generator.Backend.exceptions.errors.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
