@@ -10,17 +10,17 @@ import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/aiTool/")
+@RequestMapping("/api/aiTool")
 public class AiToolController {
 
     private final AiToolService aiToolService;
 
-    @PostMapping(name = "create")
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody CreateAiToolRequest request) {
         return ResponseEntity.ok(aiToolService.create(request));
     }
 
-    @PostMapping(name = "delete")
+    @PostMapping("/delete")
     public ResponseEntity<?> delete(@RequestParam UUID uuid) {
         return ResponseEntity.ok(aiToolService.delete(uuid));
     }

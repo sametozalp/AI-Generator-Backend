@@ -1,9 +1,13 @@
 package com.ozalp.AI.Generator.Backend.business.dtos.requests.concretes;
 
 import com.ozalp.AI.Generator.Backend.business.dtos.requests.abstracts.BaseCreateRequest;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class CreateAiToolRequest extends BaseCreateRequest {
 
     private List<String> categories;
