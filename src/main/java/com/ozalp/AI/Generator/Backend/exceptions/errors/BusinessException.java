@@ -1,4 +1,4 @@
-package com.ozalp.AI.Generator.Backend.exceptions;
+package com.ozalp.AI.Generator.Backend.exceptions.errors;
 
 public class BusinessException extends RuntimeException {
     public BusinessException(String message) {
