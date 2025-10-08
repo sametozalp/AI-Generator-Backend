@@ -4,6 +4,7 @@ import com.ozalp.AI.Generator.Backend.business.abstracts.AiToolService;
 import com.ozalp.AI.Generator.Backend.business.dtos.requests.concretes.CreateAiToolRequest;
 import com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes.AiToolResponse;
 import com.ozalp.AI.Generator.Backend.business.mappers.AiToolMapper;
+import com.ozalp.AI.Generator.Backend.business.rules.AiToolRules;
 import com.ozalp.AI.Generator.Backend.common.utilities.constants.Messages;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.DataResult;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.Result;
@@ -23,10 +24,14 @@ public class AiToolManager implements AiToolService {
 
     private final AiToolRepository repository;
     private final AiToolMapper mapper;
+    private AiToolRules rules;
 
     @Override
     public DataResult<AiToolResponse> create(CreateAiToolRequest request) {
         AiTool givenData = mapper.toEntity(request);
+
+        rules.checkIfToolNameExists(givenData);
+
         AiTool saved = repository.save(givenData);
         return new SuccessDataResult<>(mapper.toResponse(saved));
     }

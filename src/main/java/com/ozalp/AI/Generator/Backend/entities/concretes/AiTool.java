@@ -1,9 +1,8 @@
 package com.ozalp.AI.Generator.Backend.entities.concretes;
 
 import com.ozalp.AI.Generator.Backend.entities.abstracts.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.ozalp.AI.Generator.Backend.enums.MediaType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,7 +31,8 @@ public class AiTool extends BaseEntity {
     private int icon;
 
     @Column(name = "media_type", nullable = false)
-    private String mediaType;
+    @Enumerated(EnumType.STRING)
+    private MediaType mediaType;
 
     @Column(name = "name", nullable = false)
     private String name;
