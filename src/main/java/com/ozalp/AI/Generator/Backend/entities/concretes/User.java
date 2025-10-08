@@ -1,13 +1,17 @@
 package com.ozalp.AI.Generator.Backend.entities.concretes;
 
 import com.ozalp.AI.Generator.Backend.entities.abstracts.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "users")
@@ -15,13 +19,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity {
+public class User extends BaseEntity implements UserDetails {
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "surname", nullable = false)
     private String surname;
+
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @Column(name = "email", nullable = false)
     private String email;
@@ -32,4 +39,18 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserRole> roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles.stream()
+                .map(UserRole::getRole) // her UserRole'dan Role al
+                .collect(Collectors.toSet()); // Role -> GrantedAuthority zaten
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
 }
