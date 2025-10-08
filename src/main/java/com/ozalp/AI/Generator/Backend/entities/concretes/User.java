@@ -29,16 +29,7 @@ public class User extends BaseEntity {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
-    @Column(name = "profile_image")
-    private String profileImage;
-
-    @Column(name = "lang")
-    private String lang;
-
-    @Column(name = "device_token")
-    private String deviceToken;
-
-    @Column(name = "coin")
-    private int coin;
+    @Column(name = "password")
+    private String password;
 
 }
