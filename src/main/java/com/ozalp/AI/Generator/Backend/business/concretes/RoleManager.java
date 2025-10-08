@@ -51,7 +51,6 @@ public class RoleManager implements RoleService {
 
     @Override
     public Role getByName(RoleType roleType) {
-        return repository.findByName(roleType)
-                .orElseThrow(() -> new EntityNotFoundException(Messages.ROLE_NOT_FOUND));
+        return repository.findByName(roleType);
     }
 }

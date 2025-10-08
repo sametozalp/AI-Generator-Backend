@@ -11,5 +11,5 @@ import java.util.UUID;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, UUID> {
 
-    Optional<Role> findByName(RoleType roleType);
+    Role findByName(RoleType roleType);
 }
