@@ -16,8 +16,10 @@ import com.ozalp.AI.Generator.Backend.entities.concretes.User;
 import com.ozalp.AI.Generator.Backend.entities.concretes.UserRole;
 import com.ozalp.AI.Generator.Backend.enums.RoleType;
 import com.ozalp.AI.Generator.Backend.exceptions.errors.EntityNotFoundException;
+import io.jsonwebtoken.security.Password;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,9 +31,9 @@ import java.util.UUID;
 public class UserManager implements UserService {
 
     private final UserRepository repository;
-    private final UserMapper mapper;
     private final UserRules rules;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     @Override
@@ -39,6 +41,7 @@ public class UserManager implements UserService {
         rules.checkEmail(user);
         rules.checkUserName(user);
         user.setRoles(setUserForInitRole(user));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return repository.save(user);
     }
 

@@ -32,12 +32,8 @@ import java.util.List;
 public class AuthManager implements AuthService {
 
     private final UserService userService;
-    private final UserDetailService userDetailService;
     private final UserMapper userMapper;
     private final JwtService jwtService;
-    private final PasswordEncoder passwordEncoder;
-    private final RoleService roleService;
-    private final RoleMapper roleMapper;
 
     @Transactional
     @Override
