@@ -9,12 +9,14 @@ import com.ozalp.AI.Generator.Backend.common.utilities.results.DataResult;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.Result;
 import com.ozalp.AI.Generator.Backend.common.utilities.results.SuccessDataResult;
 import com.ozalp.AI.Generator.Backend.dataAccess.UserRoleRepository;
+import com.ozalp.AI.Generator.Backend.entities.concretes.User;
 import com.ozalp.AI.Generator.Backend.entities.concretes.UserRole;
 import com.ozalp.AI.Generator.Backend.exceptions.errors.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -41,6 +43,17 @@ public class UserRoleManager implements UserRoleService {
     public UserRole getById(UUID id) {
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Messages.USER_ROLE_NOT_FOUND));
+    }
+
+    @Override
+    public UserRole create(UserRole userRole) {
+        return repository.save(userRole);
+    }
+
+    @Override
+    public List<UserRole> getAllByUser(User user) {
+        return repository.findAllByUser(user)
+                .orElseThrow(() -> new EntityNotFoundException(Messages.ROLE_NOT_FOUND));
     }
 
 //    @Override

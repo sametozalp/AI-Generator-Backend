@@ -40,14 +40,16 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserRole> roles = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<UserRole> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(UserRole::getRole) // her UserRole'dan Role al
-                .collect(Collectors.toSet()); // Role -> GrantedAuthority zaten
+        return roles != null ?
+                roles.stream()
+                        .map(UserRole::getRole) // her UserRole'dan Role al
+                        .collect(Collectors.toSet()) // Role -> GrantedAuthority zaten
+                : List.of();
     }
 
     @Override

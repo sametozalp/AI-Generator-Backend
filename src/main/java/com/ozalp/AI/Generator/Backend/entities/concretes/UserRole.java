@@ -1,10 +1,7 @@
 package com.ozalp.AI.Generator.Backend.entities.concretes;
 
 import com.ozalp.AI.Generator.Backend.entities.abstracts.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
