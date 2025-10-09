@@ -24,19 +24,19 @@ public class UserDetailManager implements UserDetailService {
     private final UserDetailRepository repository;
     private final UserDetailMapper mapper;
 
-    @Transactional
-    @Override
-    public DataResult<UserDetailResponse> create(CreateUserDetailRequest request) {
-        UserDetail userDetailRequest = mapper.toEntity(request);
-        UserDetail saved = save(userDetailRequest);
-        return new SuccessDataResult<>(mapper.toResponse(saved));
-    }
+//    @Transactional
+//    @Override
+//    public DataResult<UserDetailResponse> create(CreateUserDetailRequest request) {
+//        UserDetail userDetailRequest = mapper.toEntity(request);
+//        UserDetail saved = save(userDetailRequest);
+//        return new SuccessDataResult<>(mapper.toResponse(saved));
+//    }
 
     @Override
     public Result delete(UUID id) {
         UserDetail dbDetail = getById(id);
         dbDetail.markAsDeleted();
-        save(dbDetail);
+        repository.save(dbDetail);
         return new Result(true);
     }
 
@@ -45,9 +45,9 @@ public class UserDetailManager implements UserDetailService {
         return repository.findById(id)
                 .orElseThrow(()-> new EntityNotFoundException(Messages.USER_DETAIL_NOT_FOUND));
     }
-
-    @Override
-    public UserDetail save(UserDetail entity) {
-        return repository.save(entity);
-    }
+//
+//    @Override
+//    public UserDetail save(UserDetail entity) {
+//        return repository.save(entity);
+//    }
 }

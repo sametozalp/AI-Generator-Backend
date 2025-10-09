@@ -41,7 +41,7 @@ public class AiToolManager implements AiToolService {
     public Result delete(UUID id) {
         AiTool dbUser = getById(id);
         dbUser.markAsDeleted();
-        save(dbUser);
+        repository.save(dbUser);
         return new Result(true);
     }
 
@@ -51,8 +51,8 @@ public class AiToolManager implements AiToolService {
                 new EntityNotFoundException(Messages.AI_TOOL_NOT_FOUND));
     }
 
-    @Override
-    public AiTool save(AiTool entity) {
-        return repository.save(entity);
-    }
+//    @Override
+//    public AiTool save(AiTool entity) {
+//        return repository.save(entity);
+//    }
 }

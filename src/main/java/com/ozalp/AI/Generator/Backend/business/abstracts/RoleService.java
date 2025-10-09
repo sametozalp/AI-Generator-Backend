@@ -5,10 +5,10 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes.RoleResp
 import com.ozalp.AI.Generator.Backend.entities.concretes.Role;
 import com.ozalp.AI.Generator.Backend.enums.RoleType;
 
-import java.util.UUID;
-
 public interface RoleService extends BaseService<Role, CreateRoleRequest, RoleResponse> {
 
     Role getByName(RoleType roleType);
+
+    Role create(Role role);
 
 }

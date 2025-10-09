@@ -10,13 +10,13 @@ import java.util.UUID;
 
 public interface BaseService<T extends BaseEntity, REQ extends BaseCreateRequest, RES extends BaseResponse> {
 
-    DataResult<RES> create(REQ request);
+    //DataResult<RES> create(REQ request);
 
     Result delete(UUID id);
 
     T getById(UUID id);
 
-    T save(T entity);
+    //T save(T entity);
 
 
 }

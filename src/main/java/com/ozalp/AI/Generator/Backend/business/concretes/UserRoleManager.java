@@ -24,13 +24,13 @@ public class UserRoleManager implements UserRoleService {
     private final UserRoleMapper mapper;
     private final UserRoleRepository repository;
 
-    @Transactional
-    @Override
-    public DataResult<UserRoleResponse> create(CreateUserRoleRequest request) {
-        UserRole reqRole = mapper.toEntity(request);
-        UserRole saved = save(reqRole);
-        return new SuccessDataResult<>(mapper.toResponse(saved));
-    }
+//    @Transactional
+//    @Override
+//    public DataResult<UserRoleResponse> create(CreateUserRoleRequest request) {
+//        UserRole reqRole = mapper.toEntity(request);
+//        UserRole saved = save(reqRole);
+//        return new SuccessDataResult<>(mapper.toResponse(saved));
+//    }
 
     @Override
     public Result delete(UUID id) {
@@ -43,8 +43,8 @@ public class UserRoleManager implements UserRoleService {
                 .orElseThrow(() -> new EntityNotFoundException(Messages.USER_ROLE_NOT_FOUND));
     }
 
-    @Override
-    public UserRole save(UserRole entity) {
-        return repository.save(entity);
-    }
+//    @Override
+//    public UserRole save(UserRole entity) {
+//        return repository.save(entity);
+//    }
 }

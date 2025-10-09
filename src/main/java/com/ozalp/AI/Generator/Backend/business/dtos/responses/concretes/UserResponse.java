@@ -4,6 +4,7 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResp
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -19,5 +20,7 @@ public class UserResponse extends BaseResponse {
     private String email;
 
     private int coin;
+
+//    private List<String> roles;
 
 }
