@@ -5,7 +5,7 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes.RoleResp
 import com.ozalp.AI.Generator.Backend.entities.concretes.Role;
 import com.ozalp.AI.Generator.Backend.enums.RoleType;
 
-public interface RoleService extends BaseService<Role, CreateRoleRequest, RoleResponse> {
+public interface RoleService extends BaseService<Role> {
 
     Role getByName(RoleType roleType);
 

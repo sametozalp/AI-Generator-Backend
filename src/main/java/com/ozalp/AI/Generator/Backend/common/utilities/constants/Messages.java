@@ -10,6 +10,7 @@ public class Messages {
     public static final String ROLE_NOT_FOUND = "Role not found";
     public static final String USER_ROLE_NOT_FOUND = "User role not found";
     public static final String USER_INFORMATION_DOES_NOT_MATCH = "User information does not match";
+    public static final String COIN_PLAN_NOT_FOUND = "Coin plan not found";
     public static String AI_TOOL_NOT_FOUND = "AI tool not found";
     public static String USER_NOT_FOUND = "User not found";
 }

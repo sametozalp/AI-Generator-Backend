@@ -5,7 +5,7 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes.AiToolRe
 import com.ozalp.AI.Generator.Backend.common.utilities.results.DataResult;
 import com.ozalp.AI.Generator.Backend.entities.concretes.AiTool;
 
-public interface AiToolService extends BaseService<AiTool, CreateAiToolRequest, AiToolResponse> {
+public interface AiToolService extends BaseService<AiTool> {
 
     DataResult<AiToolResponse> create(CreateAiToolRequest request);
 

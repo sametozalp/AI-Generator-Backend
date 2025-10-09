@@ -1,26 +1,23 @@
 package com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes;
 
 import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResponse;
+import com.ozalp.AI.Generator.Backend.enums.PurchaseType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class UserResponse extends BaseResponse {
+public class CoinPlanResponse extends BaseResponse {
 
     private UUID id;
 
-    private String name;
+    private int coins;
 
-    private String surname;
+    private PurchaseType type;
 
-    private String email;
+    private Boolean visibility;
 
-    private int coin;
-
-//    private List<String> roles;
-
+    private String purchaseIdInGooglePlay;
 }

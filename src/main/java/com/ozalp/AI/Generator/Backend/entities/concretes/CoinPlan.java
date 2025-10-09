@@ -27,5 +27,5 @@ public class CoinPlan extends BaseEntity {
     private Boolean visibility;
 
     @Column(name = "purchase_id_in_google_play", nullable = false)
-    private int purchaseIdInGooglePlay;
+    private String purchaseIdInGooglePlay;
 }
