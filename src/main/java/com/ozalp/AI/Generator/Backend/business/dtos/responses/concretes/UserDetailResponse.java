@@ -4,8 +4,10 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResp
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class UserDetailResponse extends BaseResponse {
 
     private UserResponse user;

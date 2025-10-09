@@ -3,12 +3,14 @@ package com.ozalp.AI.Generator.Backend.business.dtos.responses.concretes;
 import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class AiToolResponse extends BaseResponse {
 
     private List<String> categories;

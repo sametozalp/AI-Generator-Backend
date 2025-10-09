@@ -7,8 +7,10 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class UserResponse extends BaseResponse {
 
     private UUID id;

@@ -4,12 +4,16 @@ import com.ozalp.AI.Generator.Backend.business.dtos.responses.abstracts.BaseResp
 import com.ozalp.AI.Generator.Backend.enums.RequestStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class AiRequestResponse extends BaseResponse {
 
     private UUID id;

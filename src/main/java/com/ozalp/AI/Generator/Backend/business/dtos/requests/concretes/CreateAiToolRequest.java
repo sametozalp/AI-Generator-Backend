@@ -6,8 +6,10 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class CreateAiToolRequest extends BaseCreateRequest {
 
     private List<String> categories;

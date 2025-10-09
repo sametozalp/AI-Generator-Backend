@@ -4,8 +4,10 @@ import com.ozalp.AI.Generator.Backend.business.dtos.requests.abstracts.BaseCreat
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class CreateUserRequest extends BaseCreateRequest {
 
     private String name;

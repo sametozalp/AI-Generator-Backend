@@ -48,12 +48,12 @@ public class AuthManager implements AuthService {
     }
 
     public DataResult<AuthUserResponse> generateTokens(User user) {
-//        String generatedToken = jwtService.generateToken(user.getEmail(), userService.getRoleListOfUser(user.getId()));
+        String generatedToken = jwtService.generateToken(user.getEmail(), userService.getRoleListOfUser(user.getId()));
         String refreshToken = jwtService.generateRefreshToken(user.getEmail());
 
         AuthUserResponse authUserResponse = new AuthUserResponse();
         authUserResponse.setUser(userMapper.toResponse(user));
-//        authUserResponse.setToken(generatedToken);
+        authUserResponse.setToken(generatedToken);
         authUserResponse.setRefreshToken(refreshToken);
         return new SuccessDataResult<>(authUserResponse);
     }

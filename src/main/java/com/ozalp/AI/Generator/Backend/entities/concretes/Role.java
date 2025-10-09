@@ -4,17 +4,19 @@ import com.ozalp.AI.Generator.Backend.entities.abstracts.BaseEntity;
 import com.ozalp.AI.Generator.Backend.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Set;
-
+import lombok.Getter;
+import lombok.Setter;
 @Entity
 @Table(name = "roles")
-@EqualsAndHashCode(callSuper = true)
-@Data
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role extends BaseEntity implements GrantedAuthority {

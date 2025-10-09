@@ -7,8 +7,10 @@ import lombok.EqualsAndHashCode;
 
 import java.util.UUID;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class CoinPlanResponse extends BaseResponse {
 
     private UUID id;

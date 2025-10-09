@@ -5,8 +5,10 @@ import com.ozalp.AI.Generator.Backend.enums.PurchaseType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class CreateCoinPlanRequest extends BaseCreateRequest {
 
     private int coins;
